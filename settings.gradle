@@ -1,2 +1,5 @@
 rootProject.name = 'MDEISV2E4-APCC-Automation'
+include 'core-api'
+include 'core-ui'
+include 'core-utils'
 
