@@ -2,4 +2,6 @@ rootProject.name = 'MDEISV2E4-APCC-Automation'
 include 'core-api'
 include 'core-ui'
 include 'core-utils'
+include 'medeisv2e4-apcc-core-api'
+include 'medeisv2e4-apcc-api'
 

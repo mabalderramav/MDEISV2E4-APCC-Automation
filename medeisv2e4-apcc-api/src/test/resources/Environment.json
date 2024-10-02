@@ -1,0 +1,32 @@
+{
+  "Environments": [
+    {
+      "Name": "QA",
+      "Apis": [
+        {
+          "Name": "MDEISV2E4-APCC",
+          "BaseUrl": "https://mdeisv2e4-apcc-backend.onrender.com/api/",
+          "Versions": [
+            {
+              "Name": "V1",
+              "Version": ""
+            }
+          ],
+          "Authentications": [
+            {
+              "Type": "BASIC",
+              "Users": [
+                {
+                  "Type": "",
+                  "Username": "",
+                  "Password": "",
+                  "Token": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
