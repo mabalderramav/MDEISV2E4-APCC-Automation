@@ -18,6 +18,7 @@ dependencies {
     implementation 'com.fasterxml.jackson.core:jackson-core:2.15.2'
     implementation 'com.fasterxml.jackson.core:jackson-annotations:2.15.2'
 
+    testImplementation 'com.epam.reportportal:agent-java-testng:5.4.2'
     testImplementation 'org.slf4j:slf4j-simple:2.0.12'
     testImplementation 'io.cucumber:cucumber-picocontainer:7.15.0'
     testImplementation 'io.cucumber:cucumber-testng:7.15.0'
