@@ -19,7 +19,7 @@ public class ClientSteps {
         this.clientsPage = new ClientsPage();
     }
 
-    @Given("I am go to home page")
+    @Given("I go to home page")
     public void goToHomePage() {
         HomeHelper.goToHomePage();
     }

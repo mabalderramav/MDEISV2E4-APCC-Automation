@@ -2,7 +2,7 @@
 Feature: Client
 
   Scenario Outline: Create a new client
-    Given I am go to home page
+    Given I go to home page
     And I am on the client page
     Given I fill in the client form
       | name         | <name>         |

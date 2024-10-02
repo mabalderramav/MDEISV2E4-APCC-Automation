@@ -8,11 +8,18 @@ public class HomePage extends BasePage {
     @FindBy(css = "a[href='/clientes']")
     private WebElement clientsLink;
 
+    @FindBy(css = "a[href='/facturas']")
+    private WebElement salesLink;
+
     public HomePage() {
         super();
     }
 
     public void clickClientsLink() {
         action.click(clientsLink);
+    }
+
+    public void clickSalesLink() {
+        action.click(salesLink);
     }
 }
