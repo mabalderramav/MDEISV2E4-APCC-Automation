@@ -23,5 +23,7 @@ Feature: Client
       | documentType | <documentType> |
       | email        | <email>        |
     Examples:
-      | code   | name           | ciNit     | documentType | email              |
-      | {code} | test auto name | 123456789 | CI           | juanperez@mail.com |
+      | code   | name             | ciNit     | documentType | email               |
+      | {code} | test auto name   | 123456789 | CI           | juanperez@mail.com  |
+      | {code} | test auto name 1 | 123456789 | CI           | juanperez1@mail.com |
+      | {code} | test auto name 2 | 123456789 | CI           | juanperez2@mail.com |
