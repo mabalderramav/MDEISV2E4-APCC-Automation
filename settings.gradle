@@ -4,4 +4,6 @@ include 'core-ui'
 include 'core-utils'
 include 'medeisv2e4-apcc-core-api'
 include 'medeisv2e4-apcc-api'
+include 'medeisv2e4-apcc-core-ui'
+include 'medeisv2e4-apcc-ui'
 

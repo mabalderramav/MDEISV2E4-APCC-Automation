@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group = 'bo.edu.uagrm.soe.mdeisv2e4.apcc.automation.mdeisv2e4.apcc.api'
+group = 'bo.edu.uagrm.soe.mdeisv2e4.apcc.automation.mdeisv2e4.apcc.ui'
 version = '1.0-SNAPSHOT'
 
 repositories {
@@ -10,13 +10,14 @@ repositories {
 }
 
 dependencies {
-    implementation project(':medeisv2e4-apcc-core-api')
-    implementation project(':core-utils')
+    implementation project(":medeisv2e4-apcc-core-ui")
+    implementation 'org.apache.logging.log4j:log4j-core:2.23.0'
+    implementation 'org.apache.logging.log4j:log4j-api:2.23.0'
+    implementation 'org.seleniumhq.selenium:selenium-java:4.18.1'
     implementation 'io.cucumber:cucumber-java:7.15.0'
     implementation 'io.cucumber:cucumber-gherkin:7.15.0'
 
     testImplementation 'com.epam.reportportal:agent-java-testng:5.4.2'
-    testImplementation 'org.slf4j:slf4j-simple:2.0.12'
     testImplementation 'io.cucumber:cucumber-picocontainer:7.15.0'
     testImplementation 'io.cucumber:cucumber-testng:7.15.0'
     testImplementation platform('org.junit:junit-bom:5.11.1')
@@ -27,24 +28,23 @@ test {
     useTestNG()
 }
 
-tasks.register('executeMedeisv2e4ApccApiFeature', Test) {
+tasks.register('executeMedeisv2e4ApccWebFeature', Test) {
     doFirst {
         systemProperties(System.getProperties())
     }
     outputs.upToDateWhen { false }
     useTestNG()
     scanForTestClasses = false
-    outputs.upToDateWhen { false }
     options {
         useDefaultListeners = false
-        jvmArgs = ["-Dcucumber.features=${rootProject.rootDir}/medeisv2e4-apcc-api/src/test/resources/features/"]
-        jvmArgs = ['-Dcucumber.plugin=pretty,' + "rerun:medeisv2e4-apcc-api/build/rerun.txt"]
-        jvmArgs = ['-Dcucumber.filter.tags=' + System.getProperty('cucumberTags')]
+        jvmArgs = ["-Dcucumber.features=${rootProject.rootDir}/medeisv2e4-apcc-ui/src/test/resources/features/"]
+        jvmArgs = ["-Dcucumber.plugin=pretty," + "rerun:medeisv2e4-apcc-ui/build/rerun.txt"]
+        jvmArgs = ["-Dcucumber.filter.tags=" + System.getProperty("cucumberTags")]
         testLogging.showStandardStreams = true
     }
 }
 
-tasks.register("reExecuteMedeisv2e4ApccApiFeature", Test) {
+tasks.register("reExecuteMedeisv2e4ApccWebFeature", Test) {
     doFirst {
         systemProperties(System.getProperties())
     }
@@ -54,15 +54,15 @@ tasks.register("reExecuteMedeisv2e4ApccApiFeature", Test) {
         scanForTestClasses = false
         options {
             useDefaultListeners = false
-            jvmArgs = ["-Dcucumber.features=${rootProject.rootDir}/medeisv2e4-apcc-api/src/test/resources/features/"]
+            jvmArgs = ["-Dcucumber.features=${rootProject.rootDir}/medeisv2e4-apcc-ui/src/test/resources/features/"]
             jvmArgs = ["-Dcucumber.plugin=pretty"]
-            jvmArgs = ["-Dcucumber.features=@medeisv2e4-apcc-api/build/rerun.txt"]
+            jvmArgs = ["-Dcucumber.features=@medeisv2e4-apcc-ui/build/rerun.txt"]
             testLogging.showStandardStreams = true
         }
     }
 }
 
 boolean isReExecutable() {
-    File failedScenariosFile = new File("${rootProject.rootDir}/medeisv2e4-apcc-api/build/rerun.txt")
+    File failedScenariosFile = new File("${rootProject.rootDir}/medeisv2e4-apcc-ui/build/rerun.txt")
     return failedScenariosFile.exists() && !failedScenariosFile.getText().isEmpty()
 }

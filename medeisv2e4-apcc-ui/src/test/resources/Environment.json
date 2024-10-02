@@ -1,0 +1,26 @@
+{
+  "Environments": [
+    {
+      "Name": "QA",
+      "Portals": [
+        {
+          "Name": "MDEISV2E4-APCC-FRONTEND",
+          "LoginUrl": "https://sys-frontend-nu.vercel.app/",
+          "BaseUrl": "https://sys-frontend-nu.vercel.app/",
+          "Users": [
+            {
+              "Type": "",
+              "Username": "",
+              "Password": ""
+            },
+            {
+              "Type": "",
+              "Username": "",
+              "Password": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
