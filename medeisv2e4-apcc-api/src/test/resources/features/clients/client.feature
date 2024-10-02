@@ -5,14 +5,23 @@ Feature: Client
   So that I can create, update, delete and list clients
 
   @testCase1
-  Scenario: User creates a new client
+  Scenario Outline: User creates a new client
     When I send a request to POST client endpoint 'clients' with the following data
-      | code         | {code}             |
-      | name         | test auto name     |
-      | ciNit        | 123456789          |
-      | documentType | CI                 |
-      | email        | juanperez@mail.com |
+      | code         | <code>         |
+      | name         | <name>         |
+      | ciNit        | <ciNit>        |
+      | documentType | <documentType> |
+      | email        | <email>        |
     Then I should receive a response with status 200
     And I should receive a response with the following data
       | success | true                             |
       | message | Cliente registrado correctamente |
+    And the response should contain the following data
+      | code         | <code>         |
+      | name         | <name>         |
+      | ciNit        | <ciNit>        |
+      | documentType | <documentType> |
+      | email        | <email>        |
+    Examples:
+      | code   | name           | ciNit     | documentType | email              |
+      | {code} | test auto name | 123456789 | CI           | juanperez@mail.com |
