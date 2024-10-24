@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+    tools {
+        java 'jdk21'
+        gradle 'gradle8.6'
+    }
+
+    stages {
+        stage('Checkout SCM') {
+            steps {
+                echo 'Checking out code..'
+                deleteDir()
+                git url: 'https://github.com/mabalderramav/MDEISV2E4-APCC-Automation.git', branch: 'main'
+            }
+        }
+        stage('Run API Tests') {
+            steps {
+                script {
+                    echo 'Running API tests...'
+                    powershell 'gradle executeMedeisv2e4ApccApiFeature -DenvironmentName=QA-LOCAL -DcucumberTags="@regression"'
+                }
+            }
+        }
+    }
+}

@@ -27,6 +27,34 @@
           ]
         }
       ]
+    },
+    {
+      "Name": "QA-LOCAL",
+      "Apis": [
+        {
+          "Name": "MDEISV2E4-APCC",
+          "BaseUrl": "http://localhost:3050/api/",
+          "Versions": [
+            {
+              "Name": "V1",
+              "Version": ""
+            }
+          ],
+          "Authentications": [
+            {
+              "Type": "BASIC",
+              "Users": [
+                {
+                  "Type": "",
+                  "Username": "",
+                  "Password": "",
+                  "Token": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }
