@@ -5,6 +5,11 @@ pipeline {
         gradle 'gradle8.6'
     }
 
+    environment {
+        JAVA_HOME = tool 'jdk21'
+        GRADLE_HOME = tool 'gradle8.6'
+    }
+
     stages {
         stage('Checkout SCM') {
             steps {
