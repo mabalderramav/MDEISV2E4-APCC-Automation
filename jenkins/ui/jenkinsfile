@@ -9,7 +9,14 @@ pipeline {
             JAVA_HOME = "${tool 'jdk21'}"
             GRADLE_HOME = "${tool 'gradle8.6'}"
             PATH = "${env.PATH}:${env.GRADLE_HOME}/bin:${env.JAVA_HOME}/bin"
-        }
+    }
+
+    parameters {
+            string(name: 'ENVIRONMENT_NAME', defaultValue: 'QA-LOCAL', description: 'Environment to run tests against')
+            string(name: 'BROWSER', defaultValue: 'CHROME', description: 'Browser to use for UI tests')
+            booleanParam(name: 'HEADLESS_MODE', defaultValue: true, description: 'Run browser in headless mode')
+            string(name: 'CUCUMBER_TAGS', defaultValue: '@regression', description: 'Cucumber tags to include in the test run')
+    }
 
     stages {
         stage('Checkout SCM') {
@@ -22,8 +29,8 @@ pipeline {
         stage('Run UI Tests') {
             steps {
                 script {
-                    echo 'Running API tests...'
-                    bat 'gradle.bat executeMedeisv2e4ApccWebFeature -DenvironmentName=QA-LOCAL -Dbrowser=CHROME -DheadlessMode=true -DcucumberTags="@regression"'
+                    echo 'Running UI tests...'
+                    bat "gradle.bat executeMedeisv2e4ApccWebFeature -DenvironmentName=${params.ENVIRONMENT_NAME} -Dbrowser=${params.BROWSER} -DheadlessMode=${params.HEADLESS_MODE} -DcucumberTags=${params.CUCUMBER_TAGS}"
                 }
             }
         }
