@@ -23,7 +23,7 @@ pipeline {
             steps {
                 script {
                     echo 'Running API tests...'
-                    powershell 'gradle executeMedeisv2e4ApccApiFeature -DenvironmentName=QA-LOCAL -DcucumberTags="@regression"'
+                    bat 'gradle.bat executeMedeisv2e4ApccApiFeature -DenvironmentName=QA-LOCAL -DcucumberTags="@regression"'
                 }
             }
         }

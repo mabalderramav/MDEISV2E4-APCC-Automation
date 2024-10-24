@@ -3,6 +3,9 @@ gradle executeMedeisv2e4ApccApiFeature -DcucumberTags='@regression'
 
 # Windows PowerShell
 gradle executeMedeisv2e4ApccApiFeature -DenvironmentName=QA-LOCAL -DcucumberTags="@regression"
+# Windows Command line
+gradle.bat executeMedeisv2e4ApccApiFeature -DenvironmentName=QA-LOCAL -DcucumberTags="@regression"
+
 # Command for UI
 gradle executeMedeisv2e4ApccWebFeature -Dbrowser=CHROME_DOCKER -DcucumberTags='@regression'
 
