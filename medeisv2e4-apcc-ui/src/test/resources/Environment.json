@@ -21,6 +21,28 @@
           ]
         }
       ]
+    },
+    {
+      "Name": "QA-LOCAL",
+      "Portals": [
+        {
+          "Name": "MDEISV2E4-APCC-FRONTEND",
+          "LoginUrl": "http://localhost:3000/",
+          "BaseUrl": "http://localhost:3000/",
+          "Users": [
+            {
+              "Type": "",
+              "Username": "",
+              "Password": ""
+            },
+            {
+              "Type": "",
+              "Username": "",
+              "Password": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

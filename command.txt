@@ -11,5 +11,11 @@ gradle executeMedeisv2e4ApccWebFeature -Dbrowser=CHROME_DOCKER -DcucumberTags='@
 
 gradle executeMedeisv2e4ApccWebFeature -Dbrowser=CHROME -DcucumberTags='@regression'
 
+# Windows Command line
+gradle.bat executeMedeisv2e4ApccWebFeature -DenvironmentName=QA-LOCAL -Dbrowser=CHROME -DcucumberTags="@regression"
+
+# Windows Command line with headless mode
+gradle.bat executeMedeisv2e4ApccWebFeature -DenvironmentName=QA-LOCAL -Dbrowser=CHROME -DheadlessMode=true -DcucumberTags="@regression"
+
 # Gradle
 https://gradle.org/install/

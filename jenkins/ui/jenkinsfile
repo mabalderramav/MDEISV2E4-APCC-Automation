@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+    tools {
+        jdk 'jdk21'
+        gradle 'gradle8.6'
+    }
+
+    environment {
+            JAVA_HOME = "${tool 'jdk21'}"
+            GRADLE_HOME = "${tool 'gradle8.6'}"
+            PATH = "${env.PATH}:${env.GRADLE_HOME}/bin:${env.JAVA_HOME}/bin"
+        }
+
+    stages {
+        stage('Checkout SCM') {
+            steps {
+                echo 'Checking out code..'
+                deleteDir()
+                git url: 'https://github.com/mabalderramav/MDEISV2E4-APCC-Automation.git', branch: 'main'
+            }
+        }
+        stage('Run UI Tests') {
+            steps {
+                script {
+                    echo 'Running API tests...'
+                    bat 'gradle.bat executeMedeisv2e4ApccWebFeature -DenvironmentName=QA-LOCAL -Dbrowser=CHROME -DheadlessMode=true -DcucumberTags="@regression"'
+                }
+            }
+        }
+    }
+}
