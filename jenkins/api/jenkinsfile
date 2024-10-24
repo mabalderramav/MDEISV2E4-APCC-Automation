@@ -8,6 +8,7 @@ pipeline {
     environment {
         JAVA_HOME = tool 'jdk21'
         GRADLE_HOME = tool 'gradle8.6'
+        PATH = "${env.PATH}:${env.GRADLE_HOME}/bin;" + "${env.JAVA_HOME}/bin;"
     }
 
     stages {
